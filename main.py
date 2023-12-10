@@ -21,8 +21,9 @@ class Game:  # Основной класс игры
         self.close()  # ФЯ закрыть когда не работает
 
     def update(self):  # обновление
-        while pygame.event.wait().type != pygame.QUIT:  # ожидание выхода
-            self.running = False  # не работает
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
         self.scene.update()  # обновление сцены
 
